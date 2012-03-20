@@ -1,0 +1,10 @@
+{
+	"id": "com.icottrell.ironchariots",
+	"version": "0.5.0",
+	"vendor": "iCottrell",
+	"type": "web",
+	"main": "index.html",
+	"title": "Iron Chariots",
+	"icon": "img/icon.png",
+	"uiRevision": 2
+}

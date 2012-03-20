@@ -1,0 +1,1 @@
+This project currently uses Enyo v1.0, goto EnyoJS.com to get the latest update for v1.0

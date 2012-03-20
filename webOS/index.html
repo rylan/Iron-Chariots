@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<title>Iron Chariots</title>
+	<script src="enyo/framework/enyo.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+	var loc = window.location.href;
+	var path = loc.substr(0, loc.lastIndexOf("/") + 1);
+	var app = 'tablet.html'; // default version
+		
+	var device = enyo.fetchDeviceInfo();
+	if(device){
+		if(device['screenWidth'] <= 800 & device['screenHeight'] <= 400) {
+           	app = 'phone.html';
+		}
+	}
+		
+	// Redirection
+	window.location.href = path + app;		
+		
+</script>
+
+    
+</body>
+</html>

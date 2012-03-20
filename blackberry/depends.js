@@ -1,0 +1,12 @@
+enyo.depends(
+	"source/IronChariots_Tablet.js",
+	"source/IronChariotsSearch.js",
+	"source/IronChariotsPage.js",
+	"source/IronChariotsStartPage.js",
+	"source/IronChariotsAbout.js",
+	"source/IronChariotsBibleDialog.js",
+	"source/IronChariotsBugReport.js",
+	"source/IronChariotsBookmarks.js",
+	"lib/jquery.js",
+	"source/ironchariots.css"
+);

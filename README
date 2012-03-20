@@ -1,0 +1,31 @@
+About This Content
+March 15, 2012
+
+
+This application is was intially designed to provide WebOS TouchPad specific experience for accessing the Iron 
+Chariots Wiki found at http://wiki.ironchariots.org. With the release of EnyoJS as an open source project work 
+has begun to port this project to other systems (Currently supporting BlackBerry Playbook, webOS, Android 
+(ICS tablets). The Windows Phone 7 application was written from scratch for that platform, because at that time 
+EnyoJS 2.0 was not ready. 
+
+/blackberry (playbook, EnyoJS)
+/Android (tablet version is stable, EnyoJS)
+/webOS  (stable, EnyoJS)
+/wp7    (native wp7 app)
+
+Currently the source files are duplicated once stable versions for different systems are estiblished, we will 
+place all the duplicated source to a single location and create build scripts to build the different projects. 
+
+The Iron Chariots Wiki provides information on apologetics and counter-apologetics by collecting common arguments 
+and providing responses. A goal of the site is to help counter misinformation and poor arguments which masquerade 
+as evidence for religious claims. 
+
+This project is not officially supported by IronChariots.org
+
+Copyright (c) 2010 Rylan Cottrell. iCottrell.com.
+All rights reserved. This program and the accompanying materials are made available under the terms of 
+the Eclipse Public License v1.0 which accompanies this distribution, and is available
+at http://www.eclipse.org/legal/epl-v10.html
+ 
+Contributors:
+   Rylan Cottrell - initial API and implementation and/or initial documentation

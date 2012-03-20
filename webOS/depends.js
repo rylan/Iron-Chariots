@@ -1,0 +1,16 @@
+enyo.depends(
+	"source/phone/IronChariots_Phone.js",
+	"source/tablet/IronChariots_Tablet.js",
+	"source/tablet/IronChariotsSearch.js",
+	"source/phone/IronChariotsSearch_Phone.js",
+	"source/shared/IronChariotsPage.js",
+	"source/tablet/IronChariotsStartPage.js",
+	"source/phone/IronChariotsStartPage_Phone.js",
+	"source/tablet/IronChariotsAbout.js",
+	"source/shared/IronChariotsBibleDialog.js",
+	"source/shared/IronChariotsBugReport.js",
+	"source/phone/IronChariotsAbout_Phone.js",
+	"source/shared/IronChariotsBookmarks.js",
+	"lib/jquery.js",
+	"source/shared/ironchariots.css"
+);

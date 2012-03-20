@@ -1,0 +1,150 @@
+﻿<!-- 
+  Copyright (c) 2011 Rylan Cottrell. iCottrell.com.
+  All rights reserved. This program and the accompanying materials
+  are made available under the terms of the Eclipse Public License v1.0
+  which accompanies this distribution, and is available at
+  http://www.eclipse.org/legal/epl-v10.html
+ 
+  Contributors:
+     Rylan Cottrell - initial API and implementation and/or initial documentation
+ -->
+<phone:PhoneApplicationPage 
+    x:Class="com.iCottrell.IronChariots.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  
+    Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" 
+    toolkit:TiltEffect.IsTiltEnabled="True">
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Popup Name="LoadingScreen" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="65"/>
+            </Grid.RowDefinitions>
+        
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28" Visibility="Collapsed">
+            <TextBlock x:Name="ApplicationTitle" Text="Iron Chariots" Style="{StaticResource PhoneTextNormalStyle}" Tap="OpenAbout"/>
+        </StackPanel>
+        <!--Pivot Control-->
+        <controls:Pivot MaxHeight="667" Grid.Row="1" VerticalAlignment="Top" Margin="0,17,0,0" Name="PivotControl" Visibility="Collapsed">
+            <!--Pivot item one-->
+            <controls:PivotItem Header="Iron Chariots" >
+                <Grid>
+                    <TextBox Height="74" HorizontalAlignment="Left" Name="search" Text="Input..." VerticalAlignment="Top" Width="309" Tap="search_Tap" KeyDown="search_KeyDown" />
+                    <Button Content="Search" Height="74" HorizontalAlignment="Right" Name="searchButton" VerticalAlignment="Top" Width="160" HorizontalContentAlignment="Center" Click="searchButton_Click" />
+                    <Canvas Height="372" Margin="51,101,49,0" Name="spoint" VerticalAlignment="Top" Visibility="Visible">
+                        <Image Canvas.Left="0" Canvas.Top="19" Height="80" Name="image1" Stretch="Fill" Width="335" Source="images/Button_argumentsfor.png" Tap="image1_Tap" />
+                        <Image Canvas.Left="0" Canvas.Top="104" Height="80" Name="image2" Source="images/Button_argumentsagainst.png" Stretch="Fill" Width="335" Tap="image2_Tap" />
+                        <Image Canvas.Left="0" Canvas.Top="190" Height="80" Name="image3" Source="images/Button_commonobjections.png" Stretch="Fill" Width="335" Tap="image3_Tap" />
+                        <Image Canvas.Left="0" Canvas.Top="276" Height="80" Name="image4" Source="images/Button_atheism.png" Stretch="Fill" Width="335" Tap="image4_Tap" />
+                    </Canvas>
+                    <Canvas Height="460" Margin="0,80,0,0" HorizontalAlignment="Left" Name="listcanvas" VerticalAlignment="Top" Width="456" Visibility="Collapsed">
+                        <ListBox MaxHeight="460" Name="resultSet"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ItemsSource="{Binding ICSearchResults}" MaxWidth="460">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="10">
+                                        <TextBlock Text="{Binding Title}" FontWeight="Bold" Tap="ICSearchResult_Tap" Tag="{Binding Href}" />
+                                        <TextBlock Text="{Binding Description}" Tap="ICSearchResult_Tap" Tag="{Binding Href}" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Canvas>
+                </Grid>
+            </controls:PivotItem>
+
+            <!--Pivot item two-->
+            <controls:PivotItem Header="Talk Origins">
+                <Grid>
+                    <TextBox Height="74" HorizontalAlignment="Left" Margin="0,0,0,0" Name="inputBoxTO" Text="Input..." VerticalAlignment="Top" Width="309" Tap="search_TapTO" KeyDown="search_KeyDownTO" />
+                    <Button Content="Search" Height="74" HorizontalAlignment="Left" Margin="302,1,0,0" Name="SearchTO" VerticalAlignment="Top" Width="160"  Click="searchButtonTO_Click"/>
+                    <Canvas Name="TOCanvasMain" Visibility="Visible">
+                        <TextBlock Margin="3,70,5,0" VerticalAlignment="Top" Text="Topic Sections" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="72" />
+                        <ListBox MaxHeight="395" Name="TopicSet"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ItemsSource="{Binding TOCategoryTopics}" Margin="0,129,0,-5" Height="395">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Topic}" Style="{StaticResource PhoneTextLargeStyle}" Padding="0,3" Tap="TopicTapEvent" TextWrapping="Wrap" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Canvas>
+                    <Canvas Height="460" Margin="0,80,0,0" HorizontalAlignment="Left" Name="TOListCanvas" VerticalAlignment="Top" Width="456" Visibility="Collapsed">
+                        <ListBox MaxHeight="460" Name="TOResultSet"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ItemsSource="{Binding TOSearchResults}" MaxWidth="460">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Margin="10">
+                                        <TextBlock Text="{Binding Title}" FontWeight="Bold" Tap="TOSearchResult_Tap" Tag="{Binding Href}" TextWrapping="Wrap"/>
+                                        <TextBlock Text="{Binding Description}" Tap="TOSearchResult_Tap" Tag="{Binding Href}" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Canvas>
+                </Grid>
+            </controls:PivotItem>
+            <controls:PivotItem Header="Starred">
+                <Grid>
+                    <ListBox Name="ImportantList" Margin="0,0,-12,0" ItemsSource="{Binding ICTOStarred}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                    <!--Replace rectangle with image-->
+                                    <Rectangle Width="20" Fill="#FFE5001b" Margin="12,0,9,0" Tag="{Binding URL}" Tap="removeStarred"/>
+                                    <TextBlock Width="370" Text="{Binding Title}" Tag="{Binding URL}" Tap="openStarredItem" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </controls:PivotItem>
+        </controls:Pivot>
+        <Border Grid.Row="2" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Height="63"  HorizontalAlignment="Left"  Name="RCAd" VerticalAlignment="Top" Width="478" CornerRadius="1" Tap="OpenRC" Visibility="Collapsed">
+            <StackPanel VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Name="tex" Text="Responsible Charity" Style="{StaticResource PhoneTextNormalStyle}"/>
+                    <TextBlock Name="des" Margin="16,5,0,0" Text="A Better way to help" FontSize="16" Foreground="Red" />
+                </StackPanel>
+                <TextBlock Name="link" Text="www.responsiblecharity.org" TextAlignment="Center" Foreground="Green" FontSize="14" />
+            </StackPanel>
+        </Border>
+        </Grid>
+    </Grid>
+</phone:PhoneApplicationPage>
