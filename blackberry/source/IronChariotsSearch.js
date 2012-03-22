@@ -112,7 +112,7 @@ enyo.kind({
 	},
 	processHTML: function(resulthtml){
 		var jq = $(resulthtml,null);
-		var ol = jq.find('ol');
+		var ol = jq.find('ul[class=mw-search-results]');
 		var h2 = jq.find('h2');
 		for(var i=0; i<ol.length; i++){
 			var items = $(ol[i]).find('li');

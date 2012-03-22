@@ -136,7 +136,7 @@ enyo.kind({
 		this.pageTitle = jqr.find("h1[class=firstHeading]").first().text();
 
 		data.push("<h1>"+ jqr.find("h1[class=firstHeading]").first().text() +"</h1>");
-		var children = jqr.find("div[id=bodyContent]").first().children();
+		var children = jqr.find("div[class=mw-content-ltr]").first().children();
 		var prev="";
 		for(var i=0; i < children.length; i++){
 			if($(children[i]).is('p')){
