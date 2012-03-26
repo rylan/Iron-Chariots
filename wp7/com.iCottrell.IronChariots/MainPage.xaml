@@ -58,11 +58,11 @@
                 <RowDefinition Height="65"/>
             </Grid.RowDefinitions>
         
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28" Visibility="Collapsed">
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,0" Visibility="Collapsed">
             <TextBlock x:Name="ApplicationTitle" Text="Iron Chariots" Style="{StaticResource PhoneTextNormalStyle}" Tap="OpenAbout"/>
         </StackPanel>
         <!--Pivot Control-->
-        <controls:Pivot MaxHeight="667" Grid.Row="1" VerticalAlignment="Top" Margin="0,17,0,0" Name="PivotControl" Visibility="Collapsed">
+        <controls:Pivot MaxHeight="667" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,0,0" Name="PivotControl" Visibility="Collapsed">
             <!--Pivot item one-->
             <controls:PivotItem Header="Iron Chariots" >
                 <Grid>
@@ -92,32 +92,36 @@
             <!--Pivot item two-->
             <controls:PivotItem Header="Talk Origins">
                 <Grid>
-                    <TextBox Height="74" HorizontalAlignment="Left" Margin="0,0,0,0" Name="inputBoxTO" Text="Input..." VerticalAlignment="Top" Width="309" Tap="search_TapTO" KeyDown="search_KeyDownTO" />
-                    <Button Content="Search" Height="74" HorizontalAlignment="Left" Margin="302,1,0,0" Name="SearchTO" VerticalAlignment="Top" Width="160"  Click="searchButtonTO_Click"/>
-                    <Canvas Name="TOCanvasMain" Visibility="Visible">
-                        <TextBlock Margin="3,70,5,0" VerticalAlignment="Top" Text="Topic Sections" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="72" />
-                        <ListBox MaxHeight="395" Name="TopicSet"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ItemsSource="{Binding TOCategoryTopics}" Margin="0,129,0,-5" Height="395">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="74"/>
+                        <RowDefinition Height="*"/>
+                     </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <TextBox Height="74" HorizontalAlignment="Left" Name="inputBoxTO" Text="Input..." VerticalAlignment="Top" Width="309" Tap="search_TapTO" KeyDown="search_KeyDownTO" />
+                            <Button Content="Search" Height="74" HorizontalAlignment="Left" Margin="10,0,0,0" Name="SearchTO" VerticalAlignment="Top" Width="160"  Click="searchButtonTO_Click"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Name="TOCanvasMain" Visibility="Visible">
+                        <TextBlock Margin="3,0,0,0" VerticalAlignment="Top" Text="Topic Sections" Style="{StaticResource PhoneTextExtraLargeStyle}" Height="72" />
+                        <ListBox MaxHeight="385" Name="TopicSet"  ItemsSource="{Binding TOCategoryTopics}" >
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding Topic}" Style="{StaticResource PhoneTextLargeStyle}" Padding="0,3" Tap="TopicTapEvent" TextWrapping="Wrap" />
-                                    </StackPanel>
+                                        <TextBlock Text="{Binding Topic}"  Margin="0,0,0,10" Style="{StaticResource PhoneTextLargeStyle}"  Tap="TopicTapEvent" TextWrapping="Wrap" />
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                    </Canvas>
-                    <Canvas Height="460" Margin="0,80,0,0" HorizontalAlignment="Left" Name="TOListCanvas" VerticalAlignment="Top" Width="456" Visibility="Collapsed">
-                        <ListBox MaxHeight="460" Name="TOResultSet"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ItemsSource="{Binding TOSearchResults}" MaxWidth="460">
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Name="TOListCanvas" VerticalAlignment="Top" Width="456" Visibility="Collapsed">
+                            <ListBox MaxHeight="410" Name="TOResultSet"  ScrollViewer.VerticalScrollBarVisibility="Visible"  ItemsSource="{Binding TOSearchResults}" MaxWidth="460">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Margin="10">
+                                    <StackPanel Margin="0,0,0,10">
                                         <TextBlock Text="{Binding Title}" FontWeight="Bold" Tap="TOSearchResult_Tap" Tag="{Binding Href}" TextWrapping="Wrap"/>
                                         <TextBlock Text="{Binding Description}" Tap="TOSearchResult_Tap" Tag="{Binding Href}" TextWrapping="Wrap"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                    </Canvas>
+                        </StackPanel>
                 </Grid>
             </controls:PivotItem>
             <controls:PivotItem Header="Starred">

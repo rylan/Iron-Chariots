@@ -510,6 +510,7 @@ namespace com.iCottrell.IronChariots
             {
                 this.NavigationService.Navigate(new Uri("/ContentLoadError.xaml?href="+CurrentPage, UriKind.Relative));
             }
+            progress.Visibility = Visibility.Collapsed;
         }
 
         public void parse_TalkOriginsContentIndexCompleted(object sender, HtmlDocumentLoadCompleted e)
