@@ -46,7 +46,7 @@
                 </StackPanel>
             </ScrollViewer>
         </Grid>
-        <Border Grid.Row="2" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Height="63"  HorizontalAlignment="Left"  Name="RCAd" VerticalAlignment="Top" Width="478" CornerRadius="1" Tap="OpenRC">
+        <Border Grid.Row="2" BorderBrush="{StaticResource PhoneAccentBrush}" Margin="1,0,0,0" BorderThickness="2" Height="63"  HorizontalAlignment="Left"  Name="RCAd" VerticalAlignment="Top" Width="478" CornerRadius="1" Tap="OpenRC">
             <StackPanel VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Name="tex" Text="Responsible Charity" Style="{StaticResource PhoneTextNormalStyle}"/>

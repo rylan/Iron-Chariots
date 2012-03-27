@@ -131,7 +131,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                                     <!--Replace rectangle with image-->
-                                    <Rectangle Width="20" Fill="#FFE5001b" Margin="12,0,9,0" Tag="{Binding URL}" Tap="removeStarred"/>
+                                    <Rectangle Width="20" Fill="{StaticResource PhoneAccentBrush}" Margin="12,0,9,0" Tag="{Binding URL}" Tap="removeStarred"/>
                                     <TextBlock Width="370" Text="{Binding Title}" Tag="{Binding URL}" Tap="openStarredItem" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
                                 </StackPanel>
                             </DataTemplate>
@@ -140,7 +140,7 @@
                 </Grid>
             </controls:PivotItem>
         </controls:Pivot>
-        <Border Grid.Row="2" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Height="63"  HorizontalAlignment="Left"  Name="RCAd" VerticalAlignment="Top" Width="478" CornerRadius="1" Tap="OpenRC" Visibility="Collapsed">
+        <Border Grid.Row="2" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Height="63" Margin="1,0,0,0" HorizontalAlignment="Left"  Name="RCAd" VerticalAlignment="Top" Width="478" CornerRadius="1" Tap="OpenRC" Visibility="Collapsed">
             <StackPanel VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Name="tex" Text="Responsible Charity" Style="{StaticResource PhoneTextNormalStyle}"/>

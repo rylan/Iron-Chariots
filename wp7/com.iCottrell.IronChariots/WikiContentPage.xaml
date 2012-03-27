@@ -44,7 +44,7 @@
                 <TextBlock x:Name="PageTitle" Text="" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" TextWrapping="Wrap" />
             </StackPanel>
         </ScrollViewer>
-        <Border Grid.Row="2" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Height="63"  HorizontalAlignment="Left"  Name="RCAd" VerticalAlignment="Top" Width="478" CornerRadius="1" Tap="OpenRC">
+        <Border Grid.Row="2" BorderBrush="{StaticResource PhoneAccentBrush}" BorderThickness="2" Height="63" Margin="1,0,0,0" HorizontalAlignment="Left"  Name="RCAd" VerticalAlignment="Top" Width="478" CornerRadius="1" Tap="OpenRC">
             <StackPanel VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock Name="tex" Text="Responsible Charity" Style="{StaticResource PhoneTextNormalStyle}"/>
