@@ -33,17 +33,20 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="Iron Chariots" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="About" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <StackPanel  Orientation="Horizontal" >
+                <TextBlock x:Name="PageTitle" Text="About" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+                <Image Name="ironImage" Height="148" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="260" Source="images/ironchariots.light.png" />
+            </StackPanel>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Margin="12,157,12,4" Grid.RowSpan="2">
-            <StackPanel VerticalAlignment="Top" Height="422" Margin="0,174,0,0">
+        <Grid x:Name="ContentPanel" Margin="12,157,12,4" Grid.RowSpan="2" Height="607">
+            <StackPanel VerticalAlignment="Top" Height="600">
                 <RichTextBox VerticalContentAlignment="Top">
                     <Paragraph>
                         <Bold FontSize="26">Iron Chariots</Bold>
                         <LineBreak/>
-                        <Run>Version 2.0.0</Run>
+                        <Run>Version 2.5.0</Run>
                         <LineBreak/>
                         <Run>Developed by iCottrell.com</Run>
                     </Paragraph>
@@ -60,21 +63,38 @@
                     </Paragraph>
                 </RichTextBox>
                 <RichTextBox Tap="CC_Tap">
-                <Paragraph>
+                    <Paragraph>
                         <Italic>The Iron Chariots counter apologetics wiki</Italic>
-                        <LineBreak/>
+                        <LineBreak />
                         <Run>Content is available under Attribution-ShareAlike 2.5</Run>
-                </Paragraph>
-            </RichTextBox>
-                <RichTextBox Padding="0,35">
+                        <InlineUIContainer >
+                            <Image Height="31" Name="image2" Stretch="Fill" Width="88" Margin="15,0,0,0" Source="images/cc.png" />
+                        </InlineUIContainer>
+                    </Paragraph>
+                    
+                </RichTextBox>
+                <RichTextBox Padding="0,5">
                     <Paragraph>
                         <Italic>The Talk.Origins Archive</Italic>
                         <Run>is a collection of articles and essays that explore the creationism/evolution controversy from a mainstream scientific perspective.</Run>
                     </Paragraph>
                 </RichTextBox>
+
+                <RichTextBox Padding="0,5">
+                    <Paragraph>
+                        <Run>This is an open source project and cand be found at</Run>
+                        <LineBreak />
+                        <Hyperlink Foreground="{StaticResource PhoneAccentBrush}" NavigateUri="/About.xaml?href=http://rylan.github.com/Iron-Chariots">http://rylan.github.com/Iron-Chariots</Hyperlink>
+                    </Paragraph>
+                </RichTextBox>
+                <RichTextBox Padding="0,5">
+                    <Paragraph>
+                        <Run>We are a proud supporter of Responsible Charity, please consider donating</Run>
+                        <LineBreak />
+                        <Hyperlink Foreground="{StaticResource PhoneAccentBrush}" NavigateUri="/About.xaml?href=http://www.responsiblecharity.org" >http://www.responsiblecharity.org</Hyperlink>
+                    </Paragraph>
+                </RichTextBox>
             </StackPanel>
-            <Image Height="31" Name="image2" Stretch="Fill" Width="88" Source="images/cc.png" HorizontalAlignment="Right" Margin="0,429,314,147" />
-            <Image Name="ironImage" Height="168" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="280" Source="images/ironchariots.light.png" Margin="6,0,0,0" />
         </Grid>
     </Grid>
 </phone:PhoneApplicationPage>

@@ -21,6 +21,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
+using Microsoft.Phone.Net.NetworkInformation;
 
 
 namespace com.iCottrell.IronChariots
@@ -55,6 +56,27 @@ namespace com.iCottrell.IronChariots
             WebBrowserTask task = new WebBrowserTask();
             task.Uri = new Uri("http://creativecommons.org/licenses/by-sa/2.5/");
             task.Show();
+        }
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (DeviceNetworkInformation.IsNetworkAvailable)
+            {
+                string href = "";
+
+                if (e.NavigationMode != System.Windows.Navigation.NavigationMode.Back && NavigationContext.QueryString.TryGetValue("href", out href))
+                {
+                    NavigationService.RemoveBackEntry();
+                    WebBrowserTask task = new WebBrowserTask();
+                    task.Uri = new Uri(href);
+                    task.Show(); 
+                }
+            }
+            else
+            {
+                this.NavigationService.Navigate(new Uri("/DCErrorPage.xaml", UriKind.Relative));
+            }
         }
     }
 }
