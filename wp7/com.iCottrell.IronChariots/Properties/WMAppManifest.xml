@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
-  <App xmlns="" ProductID="{618f2cc8-6486-491a-b591-6aa052529398}" Title="Iron Chariots" RuntimeType="Silverlight" Version="2.5.0.0" Genre="apps.normal" Author="Rylan Cottrell" Description="The counter apologetics wiki" Publisher="iCottrell.com">
+  <App xmlns="" ProductID="{618f2cc8-6486-491a-b591-6aa052529398}" Title="Iron Chariots" RuntimeType="Silverlight" Version="2.6.1.0" Genre="apps.normal" Author="Rylan Cottrell" Description="The counter apologetics wiki" Publisher="iCottrell.com">
     <IconPath IsRelative="true" IsResource="false">images\ApplicationIcon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_GAMERSERVICES" />
